@@ -68,7 +68,7 @@
                   <li><a href="/Default">Inicio</a></li>
                   <li><a href="/Faculty">Faculty</a></li>
                   <li><a href="/Carrer">Carrer</a></li>
-                  <li><a href="/Faculty">Teacher</a></li>
+                  <li><a href="/Teacher">Teacher</a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
               </nav>
