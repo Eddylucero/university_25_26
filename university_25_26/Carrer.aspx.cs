@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Data;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 using university_25_26.Recursos;
 
@@ -17,6 +18,12 @@ namespace university_25_26
                 CargarFacultades();
                 CargarDatos();
             }
+        }
+
+        private void MostrarAlerta(string tipo, string mensaje)
+        {
+            string script = $"Swal.fire({{ icon: '{tipo}', title: '{mensaje}', confirmButtonText: 'Aceptar' }});";
+            ScriptManager.RegisterStartupScript(this, GetType(), "alerta", script, true);
         }
 
         private void CargarFacultades()
@@ -59,13 +66,13 @@ namespace university_25_26
                 string.IsNullOrWhiteSpace(txtCodigo.Text) ||
                 string.IsNullOrWhiteSpace(ddlFacultad.SelectedValue))
             {
-                lblMensaje.Text = "Por favor complete todos los campos.";
+                MostrarAlerta("error", "Por favor complete todos los campos.");
                 return false;
             }
 
             if (!int.TryParse(txtDuracion.Text, out _))
             {
-                lblMensaje.Text = "La duración debe ser numérica.";
+                MostrarAlerta("error", "La duración debe ser numérica.");
                 return false;
             }
 
@@ -102,7 +109,7 @@ namespace university_25_26
             cmd.ExecuteNonQuery();
             conexion.CerrarConexion();
 
-            lblMensaje.Text = "Carrera guardada correctamente.";
+            MostrarAlerta("success", "Carrera guardada correctamente.");
             CargarDatos();
             LimpiarCampos();
         }
@@ -110,9 +117,10 @@ namespace university_25_26
         protected void btnActualizar_Click(object sender, EventArgs e)
         {
             if (!ValidarCampos()) return;
+
             if (string.IsNullOrEmpty(hfIdCarrera.Value))
             {
-                lblMensaje.Text = "Seleccione una carrera para actualizar.";
+                MostrarAlerta("error", "Seleccione una carrera para actualizar.");
                 return;
             }
 
@@ -132,7 +140,11 @@ namespace university_25_26
             int rows = cmd.ExecuteNonQuery();
             conexion.CerrarConexion();
 
-            lblMensaje.Text = rows > 0 ? "Carrera actualizada correctamente." : "No se pudo actualizar la carrera.";
+            if (rows > 0)
+                MostrarAlerta("success", "Carrera actualizada correctamente.");
+            else
+                MostrarAlerta("error", "No se pudo actualizar la carrera.");
+
             CargarDatos();
             LimpiarCampos();
         }
@@ -140,44 +152,6 @@ namespace university_25_26
         protected void btnLimpiar_Click(object sender, EventArgs e)
         {
             LimpiarCampos();
-            lblMensaje.Text = "";
-        }
-
-        protected void btnBuscar_Click(object sender, EventArgs e)
-        {
-            string nombre = txtBuscarNombre.Text.Trim();
-            string codigo = txtBuscarCodigo.Text.Trim();
-
-            string sql = @"SELECT c.id_carre, c.name_carre, c.duration_carre, c.director_carre, 
-                                  c.code_carre, f.name_fac 
-                           FROM Carrer c
-                           INNER JOIN Faculty f ON c.id_fac = f.id_fac
-                           WHERE 1=1";
-
-            MySqlConnection con = conexion.AbrirConexion();
-            MySqlCommand cmd = new MySqlCommand();
-            cmd.Connection = con;
-
-            if (!string.IsNullOrEmpty(nombre))
-            {
-                sql += " AND c.name_carre LIKE @name";
-                cmd.Parameters.AddWithValue("@name", "%" + nombre + "%");
-            }
-            if (!string.IsNullOrEmpty(codigo))
-            {
-                sql += " AND c.code_carre LIKE @code";
-                cmd.Parameters.AddWithValue("@code", "%" + codigo + "%");
-            }
-
-            cmd.CommandText = sql;
-            MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            GridCarrera.DataSource = dt;
-            GridCarrera.DataBind();
-
-            conexion.CerrarConexion();
-            lblMensaje.Text = dt.Rows.Count > 0 ? "Resultados encontrados." : "No se encontraron resultados.";
         }
 
         protected void GridCarrera_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -213,7 +187,7 @@ namespace university_25_26
                 ddlFacultad.SelectedValue = dr["id_fac"].ToString();
 
                 hfIdCarrera.Value = id.ToString();
-                lblMensaje.Text = "Carrera cargada para editar.";
+                MostrarAlerta("info", "Carrera cargada para editar.");
             }
 
             dr.Close();
@@ -230,7 +204,11 @@ namespace university_25_26
             int rows = cmd.ExecuteNonQuery();
             conexion.CerrarConexion();
 
-            lblMensaje.Text = rows > 0 ? "Carrera eliminada correctamente." : "No se encontró la carrera.";
+            if (rows > 0)
+                MostrarAlerta("success", "Carrera eliminada correctamente.");
+            else
+                MostrarAlerta("error", "No se encontró la carrera.");
+
             CargarDatos();
             LimpiarCampos();
         }
