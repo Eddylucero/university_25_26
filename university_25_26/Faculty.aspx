@@ -31,14 +31,43 @@
         }
     </script>
 
-    <h1 class="text-center my-4">
-        <asp:Label ID="lblTitulo" runat="server" Text="Gestión de Facultades"></asp:Label>
-    </h1>
+    <h2 class="text-center my-4">Gestión de Facultades</h2>
 
     <div class="container">
         <asp:HiddenField ID="hfIdFac" runat="server" />
 
-        <div class="card shadow-sm mb-4">
+        <!-- Tabla -->
+        <div class="card shadow-sm mb-5">
+            <div class="card-header bg-secondary text-white text-center">
+                Lista de Facultades
+            </div>
+            <div class="card-body">
+                <asp:GridView ID="GridFacultad" runat="server" CssClass="table table-bordered table-hover" AutoGenerateColumns="False" DataKeyNames="id_fac" OnRowCommand="GridFacultad_RowCommand">
+                    <Columns>
+                        <asp:BoundField DataField="id_fac" HeaderText="ID" />
+                        <asp:BoundField DataField="name_fac" HeaderText="Nombre" />
+                        <asp:BoundField DataField="acronym_fac" HeaderText="Acrónimo" />
+                        <asp:BoundField DataField="dean_name_fac" HeaderText="Decano" />
+                        <asp:BoundField DataField="phone_fac" HeaderText="Teléfono" />
+                        <asp:BoundField DataField="email_fac" HeaderText="Email" />
+                        <asp:BoundField DataField="year_foundation_fac" HeaderText="Año Fundación" />
+                        <asp:TemplateField HeaderText="Opciones">
+                            <ItemTemplate>
+                                <div class="d-flex gap-2">
+                                    <asp:Button runat="server" Text="✏️" CssClass="btn btn-sm btn-primary" CommandName="Editar" CommandArgument='<%# Eval("id_fac") %>' />
+                                    <asp:Button runat="server" Text="🗑️" CssClass="btn btn-sm btn-danger"
+                                        CommandName="Eliminar" CommandArgument='<%# Eval("id_fac") %>' 
+                                        OnClientClick="return confirmarEliminacion(this);" />
+                                </div>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
+            </div>
+        </div>
+
+        <!-- Formulario -->
+        <div class="card shadow-sm mb-5">
             <div class="card-header bg-primary text-white text-center">
                 <asp:Label ID="lblFormularioTitulo" runat="server" Text="Agregar Facultad"></asp:Label>
             </div>
@@ -86,37 +115,7 @@
                     </div>
                 </div>
 
-                <asp:Label ID="lblMensaje" runat="server" CssClass="d-none text-danger mt-2"></asp:Label>
-            </div>
-        </div>
-
-        <div class="card shadow-sm">
-            <div class="card-header bg-secondary text-white text-center">
-                Lista de Facultades
-            </div>
-            <div class="card-body">
-                <asp:GridView ID="GridFacultad" runat="server" CssClass="table table-bordered table-hover" AutoGenerateColumns="False" DataKeyNames="id_fac" OnRowCommand="GridFacultad_RowCommand">
-                    <Columns>
-                        <asp:BoundField DataField="id_fac" HeaderText="ID" />
-                        <asp:BoundField DataField="name_fac" HeaderText="Nombre" />
-                        <asp:BoundField DataField="acronym_fac" HeaderText="Acrónimo" />
-                        <asp:BoundField DataField="dean_name_fac" HeaderText="Decano" />
-                        <asp:BoundField DataField="phone_fac" HeaderText="Teléfono" />
-                        <asp:BoundField DataField="email_fac" HeaderText="Email" />
-                        <asp:BoundField DataField="year_foundation_fac" HeaderText="Año Fundación" />
-
-                        <asp:TemplateField HeaderText="Opciones">
-                            <ItemTemplate>
-                                <div class="d-flex gap-2">
-                                    <asp:Button runat="server" Text="✏️" CssClass="btn btn-sm btn-primary" CommandName="Editar" CommandArgument='<%# Eval("id_fac") %>' />
-                                    <asp:Button runat="server" Text="🗑️" CssClass="btn btn-sm btn-danger"
-                                        CommandName="Eliminar" CommandArgument='<%# Eval("id_fac") %>' 
-                                        OnClientClick="return confirmarEliminacion(this);" />
-                                </div>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                    </Columns>
-                </asp:GridView>
+                <asp:Label ID="lblMensaje" runat="server" CssClass="d-none text-danger mt-3"></asp:Label>
             </div>
         </div>
     </div>
