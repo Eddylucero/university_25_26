@@ -1,0 +1,93 @@
+# ============================
+# Archivo .gitignore para .NET y Visual Studio
+# ============================
+
+# Archivos de usuario
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Carpetas generadas por Visual Studio
+.vs/
+.vscode/
+_ReSharper*/
+*.DotSettings.user
+
+# Compilaciones
+bin/
+obj/
+[Bb]uild/
+[Ll]og/
+[Bb]in/
+[Oo]bj/
+*.dll
+*.exe
+*.pdb
+*.cache
+*.log
+
+# Paquetes NuGet
+*.nupkg
+*.snupkg
+*.nuspec
+packages/
+# Mantener archivos de configuración
+!packages/build/
+!packages/repositories.config
+
+# Archivos temporales
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*.orig
+
+# Publicaciones
+publish/
+app.publish/
+*.publish.xml
+
+# Archivos de test y coverage
+TestResults/
+*.coverage
+*.coveragexml
+*.testsettings
+*.trx
+
+# Archivos de configuración local
+*.local.json
+appsettings.Development.json
+
+# Archivos generados por herramientas
+*.dbmdl
+*.jfm
+*.ide
+*.ipch
+*.opendb
+*.VC.db
+*.VC.VC.opendb
+
+# Archivos de usuario de Rider / JetBrains
+.idea/
+*.sln.iml
+
+# Archivos del sistema
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Archivos de control de versiones
+*.orig
+
+# Archivos del sistema operativo
+.DS_Store
+*.lnk
+
+# Archivos de backup
+*.bak
+*.old
+*.backup

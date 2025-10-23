@@ -1,0 +1,136 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="university_25_26.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="es">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Mi aplicación ASP.NET</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+
+    <!-- Íconos -->
+    <link href="<%= ResolveUrl("~/plantilla/Kelly/assets/img/favicon.png") %>" rel="icon" />
+    <link href="<%= ResolveUrl("~/plantilla/Kelly/assets/img/apple-touch-icon.png") %>" rel="apple-touch-icon" />
+
+    <!-- Vendor CSS Files -->
+    <link href="<%= ResolveUrl("~/plantilla/Kelly/assets/vendor/bootstrap/css/bootstrap.min.css") %>" rel="stylesheet" />
+    <link href="<%= ResolveUrl("~/plantilla/Kelly/assets/vendor/bootstrap-icons/bootstrap-icons.css") %>" rel="stylesheet" />
+    <link href="<%= ResolveUrl("~/plantilla/Kelly/assets/vendor/aos/aos.css") %>" rel="stylesheet" />
+    <link href="<%= ResolveUrl("~/plantilla/Kelly/assets/vendor/swiper/swiper-bundle.min.css") %>" rel="stylesheet" />
+    <link href="<%= ResolveUrl("~/plantilla/Kelly/assets/vendor/glightbox/css/glightbox.min.css") %>" rel="stylesheet" />
+
+    <!-- Main CSS -->
+    <link href="<%= ResolveUrl("~/plantilla/Kelly/assets/css/main.css") %>" rel="stylesheet" />
+
+    <!-- Sweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+<body class="index-page">
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <header id="header" class="header d-flex align-items-center light-background sticky-top">
+            <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
+              <a href="/Default" class="logo d-flex align-items-center me-auto me-xl-0">
+                <!-- Uncomment the line below if you also wish to use an image logo -->
+                <!-- <img src="assets/img/logo.png" alt=""> -->
+                <h1 class="sitename">Universidad Técnica de Cotopaxi</h1>
+              </a>
+
+              <nav id="navmenu" class="navmenu">
+                <ul>
+                  <li><a href="/Default">Inicio</a></li>
+                  <li><a href="/Faculty">Faculty</a></li>
+                  <li><a href="/Carrer">Carrer</a></li>
+                  <li><a href="/Faculty">Teacher</a></li>
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+              </nav>
+
+              <div class="header-social-links">
+                <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+              </div>
+
+            </div>
+          </header>
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+            <footer id="footer" class="footer light-background">
+
+                <div class="container">
+                  <div class="copyright text-center ">
+                    <p>© <span>Copyright</span> <strong class="px-1 sitename">Trabajo en grupo</strong> <span>Todos los derechos reservados<br></span></p>
+                  </div>
+                  <div class="social-links d-flex justify-content-center">
+                    <a href=""><i class="bi bi-twitter-x"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                  </div>
+                  <div class="credits">
+                    <!-- All the links in the footer should remain intact. -->
+                    <!-- You can delete the links only if you've purchased the pro version. -->
+                    <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                    <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+                    Diseñado por <a href="https://bootstrapmade.com/">Lozada Johan - Lucero Eddy</a> Distribuido por <a href="https://themewagon.com">ThemeWagon</a>
+                  </div>
+                </div>
+
+              </footer>
+
+              <!-- Scroll Top -->
+              <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+              <!-- Preloader -->
+              <div id="preloader"></div>
+
+              <!-- Vendor JS Files -->
+                <script src="<%= ResolveUrl("~/plantilla/Kelly/assets/vendor/bootstrap/js/bootstrap.bundle.min.js") %>"></script>
+                <script src="<%= ResolveUrl("~/plantilla/Kelly/assets/vendor/php-email-form/validate.js") %>"></script>
+                <script src="<%= ResolveUrl("~/plantilla/Kelly/assets/vendor/aos/aos.js") %>"></script>
+                <script src="<%= ResolveUrl("~/plantilla/Kelly/assets/vendor/waypoints/noframework.waypoints.js") %>"></script>
+                <script src="<%= ResolveUrl("~/plantilla/Kelly/assets/vendor/purecounter/purecounter_vanilla.js") %>"></script>
+                <script src="<%= ResolveUrl("~/plantilla/Kelly/assets/vendor/swiper/swiper-bundle.min.js") %>"></script>
+                <script src="<%= ResolveUrl("~/plantilla/Kelly/assets/vendor/glightbox/js/glightbox.min.js") %>"></script>
+                <script src="<%= ResolveUrl("~/plantilla/Kelly/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js") %>"></script>
+                <script src="<%= ResolveUrl("~/plantilla/Kelly/assets/vendor/isotope-layout/isotope.pkgd.min.js") %>"></script>
+
+                <!-- Main JS File -->
+                <script src="<%= ResolveUrl("~/plantilla/Kelly/assets/js/main.js") %>"></script>
+    </form>
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/Scripts/bootstrap.js") %>
+    </asp:PlaceHolder>
+</body>
+</html>
