@@ -17,12 +17,13 @@ namespace university_25_26
             {
                 CargarFacultades();
                 CargarDatos();
+                btnLimpiar.Visible = false;
             }
         }
 
         private void MostrarAlerta(string tipo, string mensaje)
         {
-            string script = $"Swal.fire({{ icon: '{tipo}', title: '{mensaje}', confirmButtonText: 'Aceptar' }});";
+            string script = $"mostrarMensaje('{tipo}', '{mensaje}');";
             ScriptManager.RegisterStartupScript(this, GetType(), "alerta", script, true);
         }
 
@@ -39,7 +40,7 @@ namespace university_25_26
             ddlFacultad.DataValueField = "id_fac";
             ddlFacultad.DataBind();
 
-            ddlFacultad.Items.Insert(0, new ListItem("-- Seleccione Facultad --", ""));
+            ddlFacultad.Items.Insert(0, new System.Web.UI.WebControls.ListItem("-- Seleccione Facultad --", ""));
             conexion.CerrarConexion();
         }
 
@@ -90,6 +91,8 @@ namespace university_25_26
 
             btnGuardar.Visible = true;
             btnActualizar.Visible = false;
+            btnLimpiar.Visible = false;
+            lblFormularioTitulo.Text = "Agregar Carrera";
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
@@ -154,15 +157,18 @@ namespace university_25_26
             LimpiarCampos();
         }
 
-        protected void GridCarrera_RowCommand(object sender, GridViewCommandEventArgs e)
+        protected void GridCarrera_RowCommand(object sender, System.Web.UI.WebControls.GridViewCommandEventArgs e)
         {
             int id = Convert.ToInt32(e.CommandArgument);
 
             if (e.CommandName == "Editar")
             {
                 CargarDatosPorId(id);
+                hfIdCarrera.Value = id.ToString();
                 btnGuardar.Visible = false;
                 btnActualizar.Visible = true;
+                btnLimpiar.Visible = true;
+                lblFormularioTitulo.Text = "Editar Carrera";
             }
             else if (e.CommandName == "Eliminar")
             {
@@ -187,7 +193,7 @@ namespace university_25_26
                 ddlFacultad.SelectedValue = dr["id_fac"].ToString();
 
                 hfIdCarrera.Value = id.ToString();
-                MostrarAlerta("info", "Carrera cargada para editar.");
+                ///MostrarAlerta("info", "Carrera cargada para editar.");
             }
 
             dr.Close();

@@ -15,6 +15,15 @@ namespace university_25_26
     {
 
         /// <summary>
+        /// Control hfIdCarrera.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfIdCarrera;
+
+        /// <summary>
         /// Control GridCarrera.
         /// </summary>
         /// <remarks>
@@ -24,13 +33,13 @@ namespace university_25_26
         protected global::System.Web.UI.WebControls.GridView GridCarrera;
 
         /// <summary>
-        /// Control hfIdCarrera.
+        /// Control lblFormularioTitulo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hfIdCarrera;
+        protected global::System.Web.UI.WebControls.Label lblFormularioTitulo;
 
         /// <summary>
         /// Control txtNombre.
@@ -78,6 +87,15 @@ namespace university_25_26
         protected global::System.Web.UI.WebControls.DropDownList ddlFacultad;
 
         /// <summary>
+        /// Control btnLimpiar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLimpiar;
+
+        /// <summary>
         /// Control btnGuardar.
         /// </summary>
         /// <remarks>
@@ -94,15 +112,6 @@ namespace university_25_26
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnActualizar;
-
-        /// <summary>
-        /// Control btnLimpiar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLimpiar;
 
         /// <summary>
         /// Control lblMensaje.

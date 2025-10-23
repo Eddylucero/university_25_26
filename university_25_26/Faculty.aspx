@@ -105,14 +105,15 @@
 
                 <div class="row mt-4">
                     <div class="col-md-4">
+                        <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" CssClass="btn btn-danger w-100" OnClick="btnCancelar_Click" Visible="false" />
+                    </div>
+                    <div class="col-md-4">
                         <asp:Button ID="btnGuardar" runat="server" Text="Agregar Facultad" CssClass="btn btn-primary w-100" OnClick="btnGuardar_Click" />
                     </div>
                     <div class="col-md-4">
                         <asp:Button ID="btnActualizar" runat="server" Text="Actualizar Facultad" CssClass="btn btn-success w-100" OnClick="btnGuardar_Click" Visible="false" />
                     </div>
-                    <div class="col-md-4">
-                        <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" CssClass="btn btn-danger w-100" OnClick="btnCancelar_Click" Visible="false" />
-                    </div>
+
                 </div>
 
                 <asp:Label ID="lblMensaje" runat="server" CssClass="d-none text-danger mt-3"></asp:Label>
