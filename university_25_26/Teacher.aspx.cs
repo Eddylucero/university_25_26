@@ -144,7 +144,7 @@ namespace university_25_26
             if (rows > 0)
                 MostrarAlerta("success", "DOCENTE ACTUALIZADO CORRECTAMENTE.");
             else
-                MostrarAlerta("error", "No se pudo actualizar el docente.");
+                MostrarAlerta("error", "UPS!, NO SE PUDO ACTUALIZAR AL DOCENTE.");
 
             CargarDocentes();
             LimpiarCampos();
