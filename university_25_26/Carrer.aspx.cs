@@ -213,7 +213,7 @@ namespace university_25_26
             if (rows > 0)
                 MostrarAlerta("success", "CARRERA ELIMINADA CORRECTAMENTE.");
             else
-                MostrarAlerta("error", "No se encontró la carrera.");
+                MostrarAlerta("error", "UPS!, NO SE ENCONTRO LA CARRERA.");
 
             CargarDatos();
             LimpiarCampos();
