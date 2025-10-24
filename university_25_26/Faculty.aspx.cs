@@ -130,7 +130,7 @@ namespace university_25_26
                 cmd.ExecuteNonQuery();
                 conn.Close();
 
-                MostrarAlerta("success", "Facultad guardada correctamente.");
+                MostrarAlerta("success", "FACULTAD GUARDADA CORRECTAMENTE.");
 
                 LimpiarFormulario();
                 CargarFacultades();
