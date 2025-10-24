@@ -110,7 +110,7 @@ namespace university_25_26
             cmd.ExecuteNonQuery();
             conexion.CerrarConexion();
 
-            MostrarAlerta("success", "Docente guardado correctamente.");
+            MostrarAlerta("success", "DOCENTE GUARDADO CORRECTAMENTE.");
             CargarDocentes();
             LimpiarCampos();
         }
