@@ -58,17 +58,17 @@
             <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
 
               <a href="/Default" class="logo d-flex align-items-center me-auto me-xl-0">
-                <!-- Uncomment the line below if you also wish to use an image logo -->
-                <!-- <img src="assets/img/logo.png" alt=""> -->
-                <h1 class="sitename">Universidad Técnica de Cotopaxi</h1>
+                  <img src="<%= ResolveUrl("~/img/universidad_def.png") %>" alt="Logo Universidad" class="me-2" style="height: 40px;" />
+                  <h1 class="sitename mb-0">Universidad Técnica de Cotopaxi</h1>
               </a>
+
 
               <nav id="navmenu" class="navmenu">
                 <ul>
                   <li><a href="/Default">Inicio</a></li>
-                  <li><a href="/Faculty">Faculty</a></li>
-                  <li><a href="/Carrer">Carrer</a></li>
-                  <li><a href="/Teacher">Teacher</a></li>
+                  <li><a href="/Faculty">Facultad</a></li>
+                  <li><a href="/Carrer">Carrera</a></li>
+                  <li><a href="/Teacher">Docente</a></li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
               </nav>
