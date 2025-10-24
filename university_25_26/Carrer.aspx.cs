@@ -144,7 +144,7 @@ namespace university_25_26
             conexion.CerrarConexion();
 
             if (rows > 0)
-                MostrarAlerta("success", "Carrera actualizada correctamente.");
+                MostrarAlerta("success", "CARRERA ACTUALIZADA CORRECTAMENTE.");
             else
                 MostrarAlerta("error", "No se pudo actualizar la carrera.");
 
@@ -211,7 +211,7 @@ namespace university_25_26
             conexion.CerrarConexion();
 
             if (rows > 0)
-                MostrarAlerta("success", "Carrera eliminada correctamente.");
+                MostrarAlerta("success", "CARRERA ELIMINADA CORRECTAMENTE.");
             else
                 MostrarAlerta("error", "No se encontró la carrera.");
 
