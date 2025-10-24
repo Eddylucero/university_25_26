@@ -112,7 +112,7 @@ namespace university_25_26
             cmd.ExecuteNonQuery();
             conexion.CerrarConexion();
 
-            MostrarAlerta("success", "Carrera guardada correctamente.");
+            MostrarAlerta("success", "CARRERA GUARDADA CORRECTAMENTE.");
             CargarDatos();
             LimpiarCampos();
         }
