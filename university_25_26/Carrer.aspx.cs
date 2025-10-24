@@ -146,7 +146,7 @@ namespace university_25_26
             if (rows > 0)
                 MostrarAlerta("success", "CARRERA ACTUALIZADA CORRECTAMENTE.");
             else
-                MostrarAlerta("error", "No se pudo actualizar la carrera.");
+                MostrarAlerta("error", "UPS!, NO SE PUDO ACTUALIZAR LA CARRERA.");
 
             CargarDatos();
             LimpiarCampos();
