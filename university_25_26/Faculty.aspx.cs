@@ -184,7 +184,7 @@ namespace university_25_26
                     cmd.ExecuteNonQuery();
                     conn.Close();
 
-                    MostrarAlerta("success", "Facultad eliminada correctamente.");
+                    MostrarAlerta("success", "FACULTAD ELIMINADA CORRECTA.");
                     CargarFacultades();
                 }
             }
