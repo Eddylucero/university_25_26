@@ -209,9 +209,9 @@ namespace university_25_26
             conexion.CerrarConexion();
 
             if (rows > 0)
-                MostrarAlerta("success", "Docente eliminado correctamente.");
+                MostrarAlerta("success", "DOCENTE ELIMINADO CORRECTAMENTE.");
             else
-                MostrarAlerta("error", "No se encontró el docente.");
+                MostrarAlerta("error", "NO SE ENCONTRO EL DOCENTE.");
 
             CargarDocentes();
             LimpiarCampos();
