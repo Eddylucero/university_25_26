@@ -121,7 +121,7 @@ namespace university_25_26
 
             if (string.IsNullOrEmpty(hfIdDocente.Value))
             {
-                MostrarAlerta("error", "Seleccione un docente para actualizar.");
+                MostrarAlerta("error", "SELECCIONE UN DOCENTE PARA ACTUALIZAR.");
                 return;
             }
 
@@ -142,7 +142,7 @@ namespace university_25_26
             conexion.CerrarConexion();
 
             if (rows > 0)
-                MostrarAlerta("success", "Docente actualizado correctamente.");
+                MostrarAlerta("success", "DOCENTE ACTUALIZADO CORRECTAMENTE.");
             else
                 MostrarAlerta("error", "No se pudo actualizar el docente.");
 
